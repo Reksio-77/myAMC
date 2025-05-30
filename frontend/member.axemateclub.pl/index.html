@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Axe Mate Club</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src  'self' https://cdn.jsdelivr.net https://unpkg.com;
+          style-src   'self';
+          img-src     'self' data:;
+          connect-src 'self' https://api.axemateclub.pl;">
+
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime/runtime.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>My Axe Mate Club</h1>
+    <p id="greeting" class="greeting hidden"></p>
+
+    <div class="tabs">
+      <button id="tab-login"  class="tab active-tab">Logowanie</button>
+      <button id="tab-register" class="tab">Rejestracja</button>
+      <button id="btn-logout"  class="tab hidden">Wyloguj się</button>
+    </div>
+
+    <!-- LOGOWANIE -->
+    <section id="auth">
+      <form id="authForm">
+        <label>Email:
+          <input type="email" name="email" required placeholder="twoj@adres.pl">
+        </label>
+        <button type="submit">Zaloguj</button>
+      </form>
+      <p id="authMsg" class="message"></p>
+    </section>
+
+    <!-- REJESTRACJA -->
+    <section id="register" class="hidden">
+      <form id="registerForm">
+        <label>Imię:
+          <input type="text" name="first_name" required placeholder="Jan">
+        </label>
+        <label>Nazwisko:
+          <input type="text" name="last_name" required placeholder="Kowalski">
+        </label>
+        <label>Telefon:
+          <input type="tel" name="phone" required placeholder="123-456-789">
+        </label>
+        <label>Email:
+          <input type="email" name="email" required placeholder="email@axemateclub.pl">
+        </label>
+        <button type="submit">Zarejestruj</button>
+      </form>
+      <p id="registerMsg" class="message"></p>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="hidden">
+      <p id="packageInfo"></p>
+      <p id="creditsInfo"></p>
+      <ul id="historyList"></ul>
+
+      <label for="slotSelect">Wybierz slot:
+        <select id="slotSelect">
+          <option value="30">30 minut (1 kredyt)</option>
+          <option value="60">60 minut (2 kredyty)</option>
+        </select>
+      </label>
+      <button id="qrBtn" class="hidden" disabled>Mój QR kod</button>
+      <div id="qrContainer"></div>
+      <p id="qrMsg" class="message"></p>
+    </section>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</body>
+</html>

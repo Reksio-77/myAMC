@@ -1,0 +1,142 @@
+/* css/style.css */
+
+/* Reset i podstawowe ustawienia */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Kontener */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Nagłówki */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.75rem;
+}
+h3 {
+  font-size: 1.2rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+/* Sekcja nagłówka z logo */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.header .logo {
+  height: 1em;
+  width: auto;
+  margin-right: 0.5em;
+}
+.header h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+/* Powitanie */
+.greeting {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Ukrywanie elementów */
+.hidden {
+  display: none;
+}
+
+/* Komunikaty */
+.message {
+  color: #c00;
+  margin-top: 0.5rem;
+}
+
+/* Formularze */
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form input[type="text"],
+form select,
+form button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+form button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* Tabela użytkowników */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Przycisk Wyloguj */
+#logoutBtn {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#logoutBtn:hover {
+  background-color: #c82333;
+}
+
+/* Kontener skanera QR */
+#qr-reader {
+  width: 300px;
+  margin-top: 1rem;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Panel Administracyjny Axe Mate Club</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src  'self' https://cdn.jsdelivr.net https://unpkg.com;
+          style-src   'self';
+          img-src     'self' data:;
+          connect-src 'self' https://api.axemateclub.pl;
+          media-src   'self' blob: data:;
+        ">
+
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime/runtime.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="images/logo.png" alt="Axe Mate Club Logo" class="logo">
+      <h1>Panel Administracyjny Axe Mate Club</h1>
+    </div>
+    <p id="greetingAdmin" class="greeting hidden"></p>
+
+    <section id="loginSection">
+      <form id="loginForm">
+        <label>Email:
+          <input type="email" name="email" required placeholder="admin@axemateclub.pl">
+        </label>
+        <label>Hasło:
+          <input type="password" name="password" required placeholder="Twoje hasło">
+        </label>
+        <button type="submit">Zaloguj</button>
+      </form>
+      <p id="authMsg" class="message"></p>
+    </section>
+
+    <section id="usersSection" class="hidden">
+      <button id="logoutBtn">Wyloguj się</button>
+      <h2>Lista członków</h2>
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>ID</th><th>Imię</th><th>Nazwisko</th><th>Email</th><th>Data utworzenia</th><th>Kredyty</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <h3>Przydziel pakiet</h3>
+      <form id="assignForm">
+        <label>Użytkownik:
+          <select id="userSelect" name="user_id" required>
+            <option value="">— wybierz —</option>
+          </select>
+        </label>
+        <label>Abonament:
+          <select id="packageSelect" name="package_id" required>
+            <option value="">— wybierz —</option>
+          </select>
+        </label>
+        <label>Kredyty:
+          <input type="number" name="credits" required>
+        </label>
+        <button type="submit">Przydziel</button>
+      </form>
+      <p id="assignMsg" class="message"></p>
+
+      <h3>Skanowanie QR</h3>
+      <button id="scanBtn">Uruchom skaner</button>
+      <p id="scanMsg" class="message"></p>
+      <div id="qr-reader"></div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</body>
+</html>
